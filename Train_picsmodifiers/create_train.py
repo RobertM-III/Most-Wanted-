@@ -62,7 +62,6 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
             elif rand_y < 0:
                 h_obj = rand_y + h_obj
                 rand_y = 0
-            # Se define esto para las partes de los patos insertadas fuera de los bordes del fondo, así se tendrá un nuevo ancho y/o largo para definir la bbox
             c_x = rand_x + w_obj // 2
             c_y = rand_y + h_obj // 2
 
