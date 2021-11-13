@@ -6,7 +6,7 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
     obj_dir = '/content/Most-Wanted-/Duckies/i_patitos_sin_crop/'
     obj_images = os.listdir(obj_dir)
 
-    back_dir = '/content/Most-Wanted-/Duckies/fondos/'
+    back_dir = '/content/Most-Wanted-/Duckies/Fondos/'
     back_images = os.listdir(back_dir)
 
     k = 0
