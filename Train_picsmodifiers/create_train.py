@@ -3,10 +3,10 @@ import os
 import random
 
 def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
-    obj_dir = 'C://Users/Administrador/Desktop/PNGs/Fotos/modi'
+    obj_dir = '/content/Most-Wanted-/Duckies/i_patitos_sin_crop/'
     obj_images = os.listdir(obj_dir)
 
-    back_dir = 'C://Users/Administrador/Desktop/PNGs/Fotos/fondos'
+    back_dir = '/content/Most-Wanted-/Duckies/fondos/'
     back_images = os.listdir(back_dir)
 
     k = 0
@@ -35,7 +35,7 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
             
             if width > 10*w_obj or height > 10*h_obj: # En caso que el ancho del fondo sea 10 veces mas grande al del patito o analogamente con la altura, se salta el fondo 
                 back = back.convert('RGB')
-                back.save('C://Users/Administrador/Desktop/PNGs/Fotos/imagenees/' + str(k).zfill(4) + '.jpg')
+                back.save('/content/Most-Wanted-/Duckies/i_patitos_en_fondos/' + str(k).zfill(4) + '.jpg')
                 break
             
 
@@ -76,8 +76,8 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
                     f.write('1 ' + str(c_x) + ' ' + str(c_y) + ' ' + str(w_obj) + ' ' + str(h_obj) + '\n')
             else:
                 back = back.convert('RGB')
-                back.save('C://Users/Administrador/Desktop/PNGs/Fotos/imagenees/' + str(k).zfill(4) + '.jpg')
-                with open('C://Users/Administrador/Desktop/PNGs/Fotos/labels/' + str(k).zfill(4) + '.txt', 'a') as f:
+                back.save('/content/Most-Wanted-/Duckies/i_patitos_en_fondos/' + str(k).zfill(4) + '.jpg')
+                with open('/content/Most-Wanted-/Duckies/labels_sin_aumentacion/' + str(k).zfill(4) + '.txt', 'a') as f:
                     f.write( '1 ' + str(c_x) + ' ' + str(c_y) + ' ' + str(w_obj) + ' ' + str(h_obj))
         k += 1
 if __name__ == '__main__':
