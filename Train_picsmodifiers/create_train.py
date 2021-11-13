@@ -72,7 +72,7 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
             h_obj /= height
             
             if i != aleatorio-1:
-                with open('C://Users/Administrador/Desktop/PNGs/Fotos/labels/' + str(k).zfill(4) + '.txt', 'w') as f:
+                with open('/content/Most-Wanted-/Duckies/labels_sin_aumentacion/' + str(k).zfill(4) + '.txt', 'w') as f:
                     f.write('1 ' + str(c_x) + ' ' + str(c_y) + ' ' + str(w_obj) + ' ' + str(h_obj) + '\n')
             else:
                 back = back.convert('RGB')
