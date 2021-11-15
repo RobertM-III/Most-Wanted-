@@ -24,7 +24,7 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
                     back_path = random.choice(back_images) # Se selecciona aleatoriamente de entre los fondos virtuales
                     back = Image.open(os.path.join(back_dir, back_path)).convert('RGBA') # Se cambia a RGBA
                     width, height = back.size 
-                    if width > 10*w_obj or height > 10*h_obj: # En caso que el ancho del fondo sea 10 veces mas grande al del patito o analogamente con la altura, se salta el fondo 
+                    if width > 10*w_obj or height > 10*h_obj or 1.25*w_obj > width or 1.25*h_obj > height: # En caso que el ancho del fondo sea 10 veces mas grande al del patito o analogamente con la altura, o que el ancho del objeto sea muy grande relativo al ancho del fondo, analogamente con la altura, se salta el fondo 
                         continue
                     if width * 0.5 > w_obj and height * 0.5 > h_obj: # En caso que se cumpla esta otra condicion, se hace un break con la selección aleatoria tal que se continua con el proceso de aumentar el dataset
                         break
@@ -33,7 +33,7 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
                 img = Image.open(os.path.join(obj_dir, obj_path))
                 w_obj, h_obj = img.size
             
-            if width > 10*w_obj or height > 10*h_obj: # En caso que el ancho del fondo sea 10 veces mas grande al del patito o analogamente con la altura, se salta el fondo 
+            if width > 10*w_obj or height > 10*h_obj or 1.25*w_obj > width or 1.25*h_obj > height: # En caso que el ancho del fondo sea 10 veces mas grande al del patito o analogamente con la altura, o que el ancho del objeto sea muy grande relativo al ancho del fondo, analogamente con la altura, se salta la inserción del nuevo patito
                 back = back.convert('RGB')
                 back.save('/content/Most-Wanted-/Duckies/i_patitos_en_fondos/' + str(k).zfill(4) + '.jpg')
                 break
