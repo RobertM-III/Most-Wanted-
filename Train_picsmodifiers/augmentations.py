@@ -30,5 +30,5 @@ for obj_path in obj_images:
     transformada = transformacion(image=img) # Le aplicamos la transformacion a la imagen anterior, entrega un diccionario con una unica entrada, que es la imagen
     img_final = transformada["image"] # Extraemos dicha imagen del diccionario
     img_final = Image.fromarray(img_final) # Le hacemos la transformacion inversa; de array a imagen
-    img_final.save('/content/Most-Wanted-/Duckies/i_patitos_aumentados/' + str(k).zfill(4) + '.jpg') # Guardamos la imagen_final en una carpeta 
+    img_final.save('/content/Most-Wanted-/Duckies/i_patitos_aumentados/' + 'aug' + str(k).zfill(4) + '.jpg') # Guardamos la imagen_final en una carpeta 
     k+=1
