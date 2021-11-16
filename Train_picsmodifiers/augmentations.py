@@ -12,7 +12,7 @@ k = 0
 transformacion = A.Compose([
     A.RandomSnow(snow_point_lower=0.3, snow_point_upper=0.7, brightness_coeff=1, always_apply=False, p=0.2), # Agrega nieve
     A.Blur(blur_limit=7, always_apply=False, p=0.2), # Difuminacion
-    A.Downscale(scale_min=0.7, scale_max=1.3, interpolation=0, always_apply=False, p=0.2), # Le baja la calidad a la imagen
+    A.Downscale(scale_min=0.7, scale_max=0.7, interpolation=0, always_apply=False, p=0.2), # Le baja la calidad a la imagen
     A.GaussNoise(var_limit=(25.0, 35.0), mean=0, per_channel=True, always_apply=False, p=0.2), # Aplica ruido gaussiano, que es como para hacer unos puntitos que dajan mas borrosa la imagen
     A.ColorJitter(brightness=[0.7,1.3], contrast=[0.7,1.3], saturation=[0.7,1.3], hue=0.2, always_apply=False, p=0.2), # Cambia brillo, contraste, saturacion y el tono
     A.RandomFog(fog_coef_lower=0.3, fog_coef_upper=0.3, alpha_coef=0.08, always_apply=False, p=0.2), # Agrega neblina
@@ -29,5 +29,6 @@ for obj_path in obj_images:
     img = np.array(img) # Lo pasamos a arreglo numpy para que albumentations pueda leer la imagen, si fuera necesario tambien hay que pasarla a RGB
     transformada = transformacion(image=img) # Le aplicamos la transformacion a la imagen anterior, entrega un diccionario con una unica entrada, que es la imagen
     img_final = transformada["image"] # Extraemos dicha imagen del diccionario
+    img_final = Image.fromarray(img_final) # Le hacemos la transformacion inversa; de array a imagen
     img_final.save('/content/Most-Wanted-/Duckies/i_patitos_aumentados/' + str(k).zfill(4) + '.jpg') # Guardamos la imagen_final en una carpeta 
     k+=1
