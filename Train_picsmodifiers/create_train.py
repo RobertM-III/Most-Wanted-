@@ -73,12 +73,12 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
             
             if i != aleatorio-1:
                 with open('/content/Most-Wanted-/Duckies/labels_sin_aumentacion/' + str(k).zfill(4) + '.txt', 'w') as f:
-                    f.write('1 ' + str(c_x) + ' ' + str(c_y) + ' ' + str(w_obj) + ' ' + str(h_obj) + '\n')
+                    f.write('0 ' + str(c_x) + ' ' + str(c_y) + ' ' + str(w_obj) + ' ' + str(h_obj) + '\n')
             else:
                 back = back.convert('RGB')
                 back.save('/content/Most-Wanted-/Duckies/i_patitos_en_fondos/' + str(k).zfill(4) + '.jpg')
                 with open('/content/Most-Wanted-/Duckies/labels_sin_aumentacion/' + str(k).zfill(4) + '.txt', 'a') as f:
-                    f.write( '1 ' + str(c_x) + ' ' + str(c_y) + ' ' + str(w_obj) + ' ' + str(h_obj))
+                    f.write('0 ' + str(c_x) + ' ' + str(c_y) + ' ' + str(w_obj) + ' ' + str(h_obj))
         k += 1
 if __name__ == '__main__':
     main()
