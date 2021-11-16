@@ -1,4 +1,6 @@
 from PIL import Image
+import albumentations as A
+import numpy as np
 import os
 
 # Usar este codigo para hacer las aumentaciones de los patitos pegados en los fondos
@@ -24,6 +26,7 @@ transformacion = A.Compose([
 
 for obj_path in obj_images:
     img = Image.open(os.path.join(obj_dir, obj_path)) # Cargamos la imagen y la guardamos en una variable
+    img = np.array(img) # Lo pasamos a arreglo numpy para que albumentations pueda leer la imagen, si fuera necesario tambien hay que pasarla a RGB
     transformada = transformacion(image=img) # Le aplicamos la transformacion a la imagen anterior, entrega un diccionario con una unica entrada, que es la imagen
     img_final = transformada["image"] # Extraemos dicha imagen del diccionario
     img_final.save('/content/Most-Wanted-/Duckies/i_patitos_aumentados/' + str(k).zfill(4) + '.jpg') # Guardamos la imagen_final en una carpeta 
