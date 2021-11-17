@@ -36,11 +36,23 @@ def main(): # Se puede usar un randint para ver si usamos 1 2 3 o 4 patos
                     back.save('/content/Most-Wanted-/Duckies/i_patitos_en_fondos/' + str(k).zfill(4) + '.jpg')
                     break
                 rand_x = random.randint(w_obj//8, width - int(w_obj*1.125)) # Se proporcionan coordenadas aleatorias que cumplan con ciertos requisitos, posibles cambios al rango dependiendo de nosotros
+                iteraciones = 0
                 while rand_x > x_ant and x_ant + w_ant//2 > rand_x and w_obj > w_ant//2:
                     rand_x = random.randint(w_obj//8, width - int(w_obj*1.125))
+                    iteraciones += 1
+                    if iteraciones > 6:
+                        back = back.convert('RGB')
+                        back.save('/content/Most-Wanted-/Duckies/i_patitos_en_fondos/' + str(k).zfill(4) + '.jpg')
+                        break
+                iteraciones = 0
                 rand_y = random.randint(h_obj//8, height - int(h_obj*1.125))
                 while rand_y > y_ant and y_ant + h_ant//2 > rand_y and h_obj > h_ant//2: # Posibles cambios al rango dependiendo de nosotros
                     rand_y = random.randint(h_obj//8, height - int(h_obj*1.125))
+                    iteraciones += 1
+                    if iteraciones > 6:
+                        back = back.convert('RGB')
+                        back.save('/content/Most-Wanted-/Duckies/i_patitos_en_fondos/' + str(k).zfill(4) + '.jpg')
+                        break
                 back.paste(img, (rand_x, rand_y), img) # Se juntan patito y fondo
 
                 x_ant = rand_x
