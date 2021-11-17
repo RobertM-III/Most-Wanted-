@@ -49,9 +49,9 @@ for obj_path in obj_images:
     anterior = []
     composición = []
     for i in range(aleatorio):
-        rndm = random.randint(0,9)
+        rndm = random.randint(0,11)
         while rndm in anterior:
-            rndm = random.randint(0,9)
+            rndm = random.randint(0,11)
         anterior = anterior + [rndm]
         composición = composición + [funciones[rndm]]
     transformacion = A.Compose(composición,bbox_params=A.BboxParams(format='yolo', label_fields=['category_ids']))
