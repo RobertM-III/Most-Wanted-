@@ -13,12 +13,14 @@ obj_labels = os.listdir(obj_dir)
 
 funciones = [A.RandomSnow(snow_point_lower=0.3, snow_point_upper=0.7, brightness_coeff=1, always_apply=False, p=1), # Agrega nieve
     A.Blur(blur_limit=7, always_apply=False, p=1), # Difuminacion
+    A.Rotate(limit=180, interpolation=1, border_mode=4, value=None, mask_value=None, always_apply=False, p=1), # Rota la imagen en un angulo aleatorio 
+    A.Flip(p=1), # Gira la imagen horizontalmente o verticalmente o ambas
     A.Downscale(scale_min=0.7, scale_max=0.7, interpolation=0, always_apply=False, p=1), # Le baja la calidad a la imagen
-    A.GaussNoise(var_limit=(25.0, 35.0), mean=0, per_channel=True, always_apply=False, p=1), # Aplica ruido gaussiano, que es como para hacer unos puntitos que dajan mas borrosa la imagen
-    A.ColorJitter(brightness=[0.7,1.3], contrast=[0.7,1.3], saturation=[0.7,1.3], hue=0.2, always_apply=False, p=1), # Cambia brillo, contraste, saturacion y el tono
+    A.GaussNoise(var_limit=(25.0, 55.0), mean=0, per_channel=True, always_apply=False, p=1), # Aplica ruido gaussiano, que es como para hacer unos puntitos que dajan mas borrosa la imagen
+    A.ColorJitter(brightness=[-1.5,1.5], contrast=[-1.5,1.5], saturation=[-1.5,1.5], hue=0.35, always_apply=False, p=1), # Cambia brillo, contraste, saturacion y el tono
     A.RandomFog(fog_coef_lower=0.3, fog_coef_upper=0.3, alpha_coef=0.08, always_apply=False, p=1), # Agrega neblina
     A.RandomShadow(shadow_roi=(0, 0, 1, 1), num_shadows_lower=1, num_shadows_upper=2, shadow_dimension=5, always_apply=False, p=1), # Agrega sombra
-    A.RandomToneCurve(scale=0.1, always_apply=False, p=1), # Cambia la razon entre las partes mas clara y mas oscuras de la imagen
+    A.RandomToneCurve(scale=0.5, always_apply=False, p=1), # Cambia la razon entre las partes mas clara y mas oscuras de la imagen
     A.ToGray(p=1), # Cambia la imagen a escala de grises bajo ciertas condiciones
     A.ToSepia(always_apply=False, p=1)]
 # Aqui le aplicamos la transformacion
